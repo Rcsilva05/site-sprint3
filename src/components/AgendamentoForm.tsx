@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 
 type FormData = {
   nome: string;
   telefone: string;
+  especialidade: string;
   data: string;
-  mensagem: string;
 };
 
 export default function AgendamentoForm() {
@@ -15,86 +16,83 @@ export default function AgendamentoForm() {
   } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    console.log("Dados enviados:", data);
-    alert("Agendamento enviado com sucesso!");
+    console.log("Agendamento enviado:", data);
+    alert("Consulta agendada com sucesso!");
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-6 bg-blue-50 rounded-2xl shadow-md p-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
-          Agendamento Rápido
-        </h2>
-
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+    <section id="agendamento" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl shadow-md"
         >
-          {/* Nome */}
-          <div className="flex flex-col">
-            <label className="font-medium">Nome Completo*</label>
-            <input
-              type="text"
-              className="border p-3 rounded-lg"
-              {...register("nome", { required: "O nome é obrigatório" })}
-            />
-            {errors.nome && (
-              <p className="text-red-500 text-sm">{errors.nome.message}</p>
-            )}
-          </div>
-
-          {/* Telefone */}
-          <div className="flex flex-col">
-            <label className="font-medium">Telefone*</label>
-            <input
-              type="tel"
-              className="border p-3 rounded-lg"
-              {...register("telefone", {
-                required: "O telefone é obrigatório",
-                pattern: {
-                  value: /^[0-9]{9,11}$/,
-                  message: "Digite um telefone válido",
-                },
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">
+            Agendamento Rápido
+          </h2>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="grid gap-6 md:grid-cols-2"
+          >
+            <div>
+              <input
+                type="text"
+                placeholder="Nome Completo*"
+                {...register("nome", { required: "O nome é obrigatório" })}
+                className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+              />
+              {errors.nome && (
+                <p className="text-red-500 text-sm">{errors.nome.message}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="tel"
+                placeholder="Telefone*"
+                {...register("telefone", {
+                  required: "O telefone é obrigatório",
+                  pattern: {
+                    value: /^[0-9]{9,11}$/,
+                    message: "Digite apenas números válidos",
+                  },
+                })}
+                className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+              />
+              {errors.telefone && (
+                <p className="text-red-500 text-sm">
+                  {errors.telefone.message}
+                </p>
+              )}
+            </div>
+            <select
+              {...register("especialidade", {
+                required: "Selecione uma especialidade",
               })}
-            />
-            {errors.telefone && (
-              <p className="text-red-500 text-sm">{errors.telefone.message}</p>
-            )}
-          </div>
-
-          {/* Data */}
-          <div className="flex flex-col">
-            <label className="font-medium">Data*</label>
+              className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
+            >
+              <option value="">Selecione a especialidade</option>
+              <option value="Cardiologista">Cardiologista</option>
+              <option value="Ortopedista">Ortopedista</option>
+              <option value="Clínico Geral">Clínico Geral</option>
+            </select>
             <input
               type="date"
-              className="border p-3 rounded-lg"
-              {...register("data", { required: "A data é obrigatória" })}
+              {...register("data", { required: "Selecione a data" })}
+              className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-600 outline-none"
             />
-            {errors.data && (
-              <p className="text-red-500 text-sm">{errors.data.message}</p>
-            )}
-          </div>
-
-          {/* Mensagem */}
-          <div className="flex flex-col md:col-span-2">
-            <label className="font-medium">Mensagem</label>
-            <textarea
-              rows={4}
-              className="border p-3 rounded-lg"
-              {...register("mensagem")}
-            ></textarea>
-          </div>
-
-          {/* Botão */}
-          <div className="md:col-span-2 flex justify-center">
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-            >
-              Confirmar Agendamento
-            </button>
-          </div>
-        </form>
+            <div className="md:col-span-2 text-center">
+              <button
+                type="submit"
+                className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition"
+              >
+                Confirmar Agendamento
+              </button>
+            </div>
+          </form>
+        </motion.div>
       </div>
     </section>
   );

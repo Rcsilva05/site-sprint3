@@ -31,24 +31,24 @@ export default function Specialties() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-4">Nossas Especialidades</h2>
-        <p className="text-gray-600 mb-12">
+        <h2 className="section-title">Nossas Especialidades</h2>
+        <p className="section-sub">
           Cuidado integral para todas as fases da vida
         </p>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {specialties.map((item) => (
             <div
               key={item.id}
-              className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition"
+              className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-200"
             >
-              <div className="text-5xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{item.nome}</h3>
-              <p className="text-gray-600">{item.descricao}</p>
-              <button className="text-orange-500 font-semibold mt-4 hover:underline">
-                Saiba mais →
+              <div className="text-4xl mb-4">{item.icon}</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{item.nome}</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">{item.descricao}</p>
+              <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center">
+                Saiba mais <span className="ml-2">→</span>
               </button>
             </div>
           ))}

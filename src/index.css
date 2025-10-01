@@ -2,21 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --- Seus estilos customizados continuam aqui --- */
+/* --- estilos globais customizados --- */
+:root {
+  --primary: #0b3553;
+  --accent: #1f9fff;
+}
+
+/* body e fontes */
+html, body, #root {
+  height: 100%;
+}
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb; /* fundo claro */
-  color: #1f2937; /* cinza escuro */
+  @apply font-sans bg-gray-50 text-gray-900 antialiased;
 }
 
-h1, h2, h3 {
-  color: #0f172a; /* azul escuro */
-  font-weight: bold;
+/* Hero escuro */
+.hero-dark {
+  background: linear-gradient(180deg, #0b3553 0%, #0a2b46 100%);
+  color: white;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button {
-  transition: all 0.2s;
+/* Botão primário - AGORA FUNCIONANDO */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-200 inline-block text-center;
 }
-button:hover {
-  transform: scale(1.05);
+
+.btn-primary:hover {
+  @apply transform scale-105;
+}
+
+/* Botão outline - AGORA FUNCIONANDO */
+.btn-outline {
+  @apply border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-200 inline-block text-center;
+}
+
+/* Classes de seção */
+.section-title {
+  @apply text-3xl md:text-4xl font-extrabold text-gray-900 mb-4;
+}
+
+.section-sub {
+  @apply text-gray-600 text-lg mb-8;
+}
+
+/* Container personalizado */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-xl shadow-md p-6;
 }
