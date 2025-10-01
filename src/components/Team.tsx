@@ -9,7 +9,7 @@ export default function Team() {
       cargo: "Desenvolvedor",
       github: "https://github.com/nathanael",
       linkedin: "https://linkedin.com/in/nathanael",
-      foto: "",
+      foto: "imagens/nathanael.jpeg",
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ export default function Team() {
       cargo: "Líder",
       github: "https://github.com/augusto",
       linkedin: "https://linkedin.com/in/augusto",
-      foto: "",
+      foto: "imagens/augusto.jpeg",
     },
     {
       id: 3,
