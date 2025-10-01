@@ -8,7 +8,7 @@ export default function Team() {
       rm: "564990",
       cargo: "Desenvolvedor",
       github: "https://github.com/nathanael",
-      linkedin: "https://linkedin.com/in/nathanael",
+      linkedin: "https://linkedin.com/in/nathanael-cândido-mattos-vieira-392108129/",
       foto: "imagens/nathanael.jpeg",
     },
     {
@@ -17,7 +17,7 @@ export default function Team() {
       rm: "565155",
       cargo: "Líder",
       github: "https://github.com/augusto",
-      linkedin: "https://linkedin.com/in/augusto",
+      linkedin: "https://linkedin.com/in/augusto-junior-bonomo-32777896/",
       foto: "imagens/augusto.jpeg",
     },
     {
@@ -26,7 +26,7 @@ export default function Team() {
       rm: "565162",
       cargo: "Vendedor",
       github: "https://github.com/rodrigo",
-      linkedin: "https://linkedin.com/in/rodrigo",
+      linkedin: "https://linkedin.com/in/rodrigo-silva-36a6a3216/",
       foto: "imagens/rodrigo.jpeg",
     },
   ];
