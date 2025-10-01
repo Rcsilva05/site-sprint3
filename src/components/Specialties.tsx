@@ -5,28 +5,24 @@ export default function Specialties() {
       nome: "Cardiologia",
       descricao:
         "Exames preventivos e tratamentos cardíacos com tecnologia de última geração.",
-      icon: "❤️",
     },
     {
       id: 2,
       nome: "Neurologia",
       descricao:
         "Diagnóstico e tratamento de doenças do sistema nervoso com especialistas renomados.",
-      icon: "🧠",
     },
     {
       id: 3,
       nome: "Ortopedia",
       descricao:
         "Cuidado com ossos, articulações e sistema musculoesquelético.",
-      icon: "🦴",
     },
     {
       id: 4,
       nome: "Pneumologia",
       descricao:
         "Tratamento de doenças respiratórias e acompanhamento especializado.",
-      icon: "🫁",
     },
   ];
 
