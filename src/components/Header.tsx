@@ -1,20 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  return (
-    <header className="bg-blue-900 text-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold tracking-wide">
-          Vital<span className="text-blue-400">Link</span>
-        </h1>
+  const location = useLocation();
 
-        {/* Menu */}
-        <nav className="flex gap-6 text-lg font-medium">
-          <Link to="/" className="hover:text-blue-400 transition">Início</Link>
-          <Link to="/services" className="hover:text-blue-400 transition">Serviços</Link>
-          <Link to="/especialidades" className="hover:text-blue-400 transition">Especialidades</Link>
-          <Link to="/contato" className="hover:text-blue-400 transition">Contato</Link>
+  const navItems = [
+    { path: "/", label: "Início" },
+    { path: "/servicos", label: "Serviços" },
+    { path: "/especialidades", label: "Especialidades" },
+    { path: "/contato", label: "Contato" },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
+
+  return (
+    <header className="fixed top-0 left-0 w-full bg-blue-900 text-white shadow-md z-50">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-bold">VitalLink</Link>
+
+        {/* Menu Desktop */}
+        <nav className="space-x-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`hover:text-blue-300 transition-colors ${
+                isActive(item.path) ? "text-blue-300 font-semibold" : ""
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>

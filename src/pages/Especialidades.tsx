@@ -6,11 +6,15 @@ export default function Especialidades() {
   return (
     <>
       <Header />
-      <main className="p-10">
-        <h1 className="text-3xl font-bold text-center">Página de Especialidades</h1>
-        <p className="text-center mt-4">
-          Confira nossas especialidades médicas abaixo.
-        </p>
+      <main className="pt-20">
+        <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+          <div className="container mx-auto px-6 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Nossas Especialidades</h1>
+            <p className="text-lg md:text-xl text-blue-100">
+              Conheça nosso corpo clínico especializado
+            </p>
+          </div>
+        </div>
         <Specialties />
       </main>
       <Footer />

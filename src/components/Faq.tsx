@@ -3,25 +3,17 @@ import { useState } from "react";
 export default function Faq() {
   const faqs = [
     {
-      pergunta: "Quais serviços a Vitalink oferece?",
-      resposta:
-        "Oferecemos consultas presenciais e online, exames especializados e acompanhamento médico contínuo.",
+      pergunta: "Como posso agendar uma consulta?",
+      resposta: "Você pode agendar diretamente pelo site no formulário de agendamento rápido ou entrar em contato pelo telefone."
     },
     {
-      pergunta: "Como faço para agendar uma consulta?",
-      resposta:
-        "Você pode agendar diretamente pelo site no formulário de agendamento rápido ou entrar em contato pelo telefone.",
+      pergunta: "Quais são as formas de pagamento?",
+      resposta: "Aceitamos cartão de crédito, débito, PIX e principais convênios médicos."
     },
     {
-      pergunta: "A Vitalink atende convênios?",
-      resposta:
-        "Sim! Trabalhamos com diversos convênios médicos. Consulte nossa lista completa na página de serviços.",
-    },
-    {
-      pergunta: "O atendimento online é seguro?",
-      resposta:
-        "Sim, utilizamos plataformas certificadas para garantir a privacidade e segurança dos pacientes.",
-    },
+      pergunta: "Como funciona o cancelamento?",
+      resposta: "Cancelamentos podem ser feitos com até 24h de antecedência sem custos. Entre em contato conosco."
+    }
   ];
 
   const [ativo, setAtivo] = useState<number | null>(null);
@@ -31,25 +23,33 @@ export default function Faq() {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-8">Perguntas Frequentes</h2>
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-6 max-w-3xl">
+        {/* Título */}
+        <div className="text-center mb-12">
+          <h2 className="section-title">Perguntas Frequentes</h2>
+        </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        {/* Itens FAQ */}
+        <div className="space-y-4">
           {faqs.map((item, index) => (
             <div
               key={index}
-              className="border rounded-lg shadow-sm bg-white"
+              className="bg-white rounded-lg border border-gray-200 shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center p-4 font-semibold text-left hover:bg-gray-100 transition"
+                className="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors"
               >
-                {item.pergunta}
-                <span>{ativo === index ? "−" : "+"}</span>
+                <span className="font-medium text-gray-800">{item.pergunta}</span>
+                <span className="text-blue-600 font-bold text-lg">
+                  {ativo === index ? "−" : "+"}
+                </span>
               </button>
               {ativo === index && (
-                <p className="p-4 text-gray-600 border-t">{item.resposta}</p>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600">{item.resposta}</p>
+                </div>
               )}
             </div>
           ))}

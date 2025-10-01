@@ -1,28 +1,45 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
-    <section className="bg-blue-900 text-white py-20">
-      <div className="container mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          VitalLink: Cuidando da sua saúde com excelência
-        </h1>
-        <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8">
-          Tecnologia de ponta, profissionais qualificados e atendimento humanizado para sua melhor experiência em saúde.
-        </p>
+    <section className="hero-dark flex items-center justify-center min-h-[80vh]">
+      <div className="container mx-auto px-6 text-center">
+        {/* Título */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-extrabold mb-6"
+        >
+          VitaLLink: Cuidando da sua saúde com excelência
+        </motion.h1>
 
-        <div className="flex justify-center gap-4">
-          <a
-            href="#agendamento"
-            className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg text-lg font-medium transition"
-          >
+        {/* Subtítulo */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-blue-100 leading-relaxed"
+        >
+          Tecnologia de ponta, profissionais qualificados e atendimento humanizado
+          para sua melhor experiência em saúde.
+        </motion.p>
+
+        {/* Botões CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="flex flex-col sm:flex-row justify-center gap-6"
+        >
+          <Link to="/contato" className="btn-primary">
             Marque sua consulta
-          </a>
-          <a
-            href="#especialidades"
-            className="border border-white hover:bg-white hover:text-blue-900 px-6 py-3 rounded-lg text-lg font-medium transition"
-          >
+          </Link>
+          <Link to="/servicos" className="btn-outline">
             Conheça nossos serviços
-          </a>
-        </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
