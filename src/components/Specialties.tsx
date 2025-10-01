@@ -43,9 +43,6 @@ export default function Specialties() {
               <div className="text-4xl mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{item.nome}</h3>
               <p className="text-gray-600 mb-4 leading-relaxed">{item.descricao}</p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center">
-                Saiba mais <span className="ml-2">→</span>
-              </button>
             </div>
           ))}
         </div>
