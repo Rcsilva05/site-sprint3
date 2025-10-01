@@ -8,8 +8,13 @@ export default function Team() {
       rm: "564990",
       cargo: "Desenvolvedor",
       github: "https://github.com/NathanaelV",
+<<<<<<< HEAD
       linkedin: "https://linkedin.com/in/nathanael-cândido-mattos-vieira-392108129/",
       foto: "imagens/nathanael.jpeg",
+=======
+      linkedin: "https://www.linkedin.com/in/nathanael-c%C3%A2ndido-mattos-vieira-392108129/",
+      foto: "imagens/Nathan.jpg",
+>>>>>>> 9051294 (alinhando design)
     },
     {
       id: 2,
@@ -17,8 +22,13 @@ export default function Team() {
       rm: "565155",
       cargo: "Líder",
       github: "https://github.com/AugustoBJunior",
+<<<<<<< HEAD
       linkedin: "https://linkedin.com/in/augusto-junior-bonomo-32777896/",
       foto: "imagens/augusto.jpeg",
+=======
+      linkedin: "https://www.linkedin.com/in/augusto-junior-bonomo-32777896?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
+      foto: "/imagens/augusto.jpg",
+>>>>>>> 9051294 (alinhando design)
     },
     {
       id: 3,
@@ -26,8 +36,13 @@ export default function Team() {
       rm: "565162",
       cargo: "Vendedor",
       github: "https://github.com/Rcsilva05",
+<<<<<<< HEAD
       linkedin: "https://linkedin.com/in/rodrigo-silva-36a6a3216/",
       foto: "imagens/rodrigo.jpeg",
+=======
+      linkedin: "https://www.linkedin.com/in/rodrigo-silva-36a6a3216/",
+      foto: "/imagens/Rodrigo.jpg",
+>>>>>>> 9051294 (alinhando design)
     },
   ];
 
