@@ -1,102 +1,108 @@
 import { useState } from "react";
 
 export default function FormularioAgendamento() {
-  const [nome, setNome] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [especialidade, setEspecialidade] = useState("");
-  const [horario, setHorario] = useState("");
+  const [formData, setFormData] = useState({
+    nome: "",
+    email: "",
+    especialidade: "",
+    mensagem: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!nome || !telefone || !especialidade || !horario) {
-      alert("⚠️ Por favor, preencha todos os campos antes de confirmar o agendamento.");
+    if (!formData.nome || !formData.email || !formData.especialidade || !formData.mensagem) {
+      setError("⚠️ Preencha todos os campos antes de enviar.");
       return;
     }
 
-    
-    alert("✅ Agendamento realizado com sucesso!"); // ajuste para preencher campo
+    setError("");
+    alert("✅ Agendamento enviado com sucesso!");
+    setFormData({ nome: "", email: "", especialidade: "", mensagem: "" });
   };
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Agendamento Rápido</h2>
-        <p className="text-gray-600 mb-8">
-          Preencha os dados abaixo para marcar sua consulta
-        </p>
+    <div className="container mx-auto px-4 py-12">
+      <h2 className="text-2xl font-bold text-center mb-8">Agende sua Consulta</h2>
 
-        <form
-          onSubmit={handleSubmit}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
-        >
-          {/* Nome */}
-          <div className="flex flex-col text-left">
-            <label className="font-medium text-gray-700 mb-1">Nome Completo*</label>
-            <input
-              type="text"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              placeholder="Digite seu nome completo"
-              className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-wrap items-end justify-center gap-4 bg-white shadow-lg rounded-2xl p-6 max-w-6xl mx-auto"
+      >
+        {/* Nome */}
+        <div className="flex flex-col w-48">
+          <label className="text-gray-700 mb-1">Nome:</label>
+          <input
+            type="text"
+            name="nome"
+            value={formData.nome}
+            onChange={handleChange}
+            className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </div>
 
-          {/* Telefone */}
-          <div className="flex flex-col text-left">
-            <label className="font-medium text-gray-700 mb-1">Telefone*</label>
-            <input
-              type="tel"
-              value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
-              placeholder="(11) 99999-9999"
-              className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+        {/* E-mail */}
+        <div className="flex flex-col w-56">
+          <label className="text-gray-700 mb-1">E-mail:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </div>
 
-          {/* Especialidade */}
-          <div className="flex flex-col text-left">
-            <label className="font-medium text-gray-700 mb-1">Especialidade*</label>
-            <select
-              value={especialidade}
-              onChange={(e) => setEspecialidade(e.target.value)}
-              className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">Selecione uma especialidade</option>
-              <option value="Cardiologia">Cardiologia</option>
-              <option value="Neurologia">Neurologia</option>
-              <option value="Ortopedia">Ortopedia</option>
-              <option value="Pneumologia">Pneumologia</option>
-            </select>
-          </div>
+        {/* Especialidade */}
+        <div className="flex flex-col w-52">
+          <label className="text-gray-700 mb-1">Especialidade:</label>
+          <select
+            name="especialidade"
+            value={formData.especialidade}
+            onChange={handleChange}
+            className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
+          >
+            <option value="">Selecione...</option>
+            <option value="neurologia">Neurologia</option>
+            <option value="pneumologia">Pneumologia</option>
+            <option value="gastroenterologia">Gastroenterologia</option>
+          </select>
+        </div>
 
-          {/* Horário */}
-          <div className="flex flex-col text-left">
-            <label className="font-medium text-gray-700 mb-1">Horário Preferencial*</label>
-            <select
-              value={horario}
-              onChange={(e) => setHorario(e.target.value)}
-              className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">Selecione um horário</option>
-              <option value="08:00">08:00</option>
-              <option value="10:00">10:00</option>
-              <option value="14:00">14:00</option>
-              <option value="16:00">16:00</option>
-            </select>
-          </div>
+        {/* Mensagem */}
+        <div className="flex flex-col w-64">
+          <label className="text-gray-700 mb-1">Mensagem:</label>
+          <textarea
+            name="mensagem"
+            value={formData.mensagem}
+            onChange={handleChange}
+            className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            rows={1}
+            required
+          ></textarea>
+        </div>
 
-          {/* Botão */}
-          <div className="md:col-span-2 flex justify-center">
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
-            >
-              Confirmar Agendamento
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
+        {/* Botão */}
+        <div>
+          <button
+            type="submit"
+            className="bg-indigo-600 text-white px-6 py-2 rounded-lg shadow hover:bg-indigo-700 transition"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+
+      {error && <p className="text-center text-red-500 mt-4">{error}</p>}
+    </div>
   );
 }

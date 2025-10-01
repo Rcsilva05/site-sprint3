@@ -1,61 +1,29 @@
-import { HeartPulse, Brain, Bone, Stethoscope } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-interface Specialty {
-  id: number;
-  nome: string;
-  descricao: string;
-  icon: JSX.Element;
-}
+type Props = {
+  specialties: { id: string; nome: string }[];
+};
 
-export default function Specialties() {
-  const specialties: Specialty[] = [
-    {
-      id: 1,
-      nome: "Cardiologia",
-      descricao:
-        "Exames preventivos e tratamentos cardíacos com tecnologia de última geração.",
-      icon: <HeartPulse className="w-10 h-10 text-blue-600" />,
-    },
-    {
-      id: 2,
-      nome: "Neurologia",
-      descricao:
-        "Diagnóstico e tratamento de doenças do sistema nervoso com especialistas renomados.",
-      icon: <Brain className="w-10 h-10 text-blue-600" />,
-    },
-    {
-      id: 3,
-      nome: "Ortopedia",
-      descricao:
-        "Cuidado com ossos, articulações e sistema musculoesquelético.",
-      icon: <Bone className="w-10 h-10 text-blue-600" />,
-    },
-    {
-      id: 4,
-      nome: "Pneumologia",
-      descricao:
-        "Tratamento de doenças respiratórias e acompanhamento especializado.",
-      icon: <Stethoscope className="w-10 h-10 text-blue-600" />,
-    },
-  ];
+export default function Specialties({ specialties }: Props) {
+  const navigate = useNavigate();
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold text-center mb-8">
+          Nossas Especialidades
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {specialties.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
+              onClick={() => navigate(`/especialidades/${item.id}`)}
+              className="p-6 bg-white shadow-md rounded-xl text-center hover:shadow-lg transition cursor-pointer"
             >
-              {/* Ícone dentro de círculo */}
-              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                {item.nome}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">{item.descricao}</p>
+              <h3 className="text-lg font-semibold">{item.nome}</h3>
+              <p className="text-sm text-gray-600 mt-2">
+                Clique para ver detalhes de {item.nome}.
+              </p>
             </div>
           ))}
         </div>

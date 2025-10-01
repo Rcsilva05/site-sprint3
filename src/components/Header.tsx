@@ -8,6 +8,9 @@ export default function Header() {
     { path: "/servicos", label: "Serviços" },
     { path: "/especialidades", label: "Especialidades" },
     { path: "/contato", label: "Contato" },
+    { path: "/About", label: "Sobre nós" },
+
+    
   ];
 
   const isActive = (path: string) => location.pathname === path;

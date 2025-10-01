@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.6 }}
           
         >
-          <Link to="/contato" className="btn-primary">
+          <Link to="/especialidades" className="btn-primary">
             Marque sua consulta
           </Link>
           <Link to="/servicos" className="btn-outline">

@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 type ContactData = {
   nome: string;
@@ -20,12 +21,20 @@ export default function ContactForm() {
     alert("Mensagem enviada com sucesso!");
   };
 
+  // 👇 useEffect para alterar o título da página ao carregar o componente
+  useEffect(() => {
+    document.title = "Contato - VitalLink";
+    console.log("Página de contato carregada!");
+  }, []);
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Entre em Contato</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Entre em Contato
+            </h2>
             <p className="text-gray-600">
               Estamos à disposição para melhor atendê-lo
             </p>
@@ -45,7 +54,9 @@ export default function ContactForm() {
                     className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                   />
                   {errors.nome && (
-                    <p className="text-red-500 text-sm mt-1">{errors.nome.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.nome.message}
+                    </p>
                   )}
                 </div>
 
@@ -59,7 +70,9 @@ export default function ContactForm() {
                     className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
 
@@ -96,11 +109,15 @@ export default function ContactForm() {
                   </label>
                   <textarea
                     rows={5}
-                    {...register("mensagem", { required: "Mensagem é obrigatória" })}
+                    {...register("mensagem", {
+                      required: "Mensagem é obrigatória",
+                    })}
                     className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
                   ></textarea>
                   {errors.mensagem && (
-                    <p className="text-red-500 text-sm mt-1">{errors.mensagem.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.mensagem.message}
+                    </p>
                   )}
                 </div>
 
@@ -115,7 +132,9 @@ export default function ContactForm() {
 
             {/* Informações de Contato */}
             <div className="bg-blue-50 rounded-lg p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Informações de Contato</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                Informações de Contato
+              </h3>
               <div className="space-y-4">
                 <div>
                   <h4 className="font-semibold text-gray-900">Telefone</h4>
@@ -130,7 +149,9 @@ export default function ContactForm() {
                   <p className="text-gray-600">São Paulo - SP</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Horário de Atendimento</h4>
+                  <h4 className="font-semibold text-gray-900">
+                    Horário de Atendimento
+                  </h4>
                   <p className="text-gray-600">Segunda a Sexta: 8h às 18h</p>
                   <p className="text-gray-600">Sábado: 8h às 12h</p>
                 </div>

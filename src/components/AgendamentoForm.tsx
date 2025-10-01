@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 type FormData = {
   nome: string;
@@ -18,7 +19,16 @@ export default function AgendamentoForm() {
   const onSubmit = (data: FormData) => {
     console.log("Agendamento enviado:", data);
     alert("Consulta agendada com sucesso!");
+    localStorage.setItem("ultimoAgendamento", JSON.stringify(data));
   };
+
+  // 👇 useEffect para carregar o último agendamento salvo
+  useEffect(() => {
+    const saved = localStorage.getItem("ultimoAgendamento");
+    if (saved) {
+      console.log("Último agendamento recuperado:", JSON.parse(saved));
+    }
+  }, []);
 
   return (
     <section id="agendamento" className="py-20 bg-white">
