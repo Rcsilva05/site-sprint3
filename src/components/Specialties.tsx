@@ -5,28 +5,28 @@ export default function Specialties() {
       nome: "Cardiologia",
       descricao:
         "Exames preventivos e tratamentos cardíacos com tecnologia de última geração.",
-      icon: "❤️",
+      
     },
     {
       id: 2,
       nome: "Neurologia",
       descricao:
         "Diagnóstico e tratamento de doenças do sistema nervoso com especialistas renomados.",
-      icon: "🧠",
+      
     },
     {
       id: 3,
       nome: "Ortopedia",
       descricao:
         "Cuidado com ossos, articulações e sistema musculoesquelético.",
-      icon: "🦴",
+     
     },
     {
       id: 4,
       nome: "Pneumologia",
       descricao:
         "Tratamento de doenças respiratórias e acompanhamento especializado.",
-      icon: "🫁",
+      
     },
   ];
 
@@ -44,12 +44,10 @@ export default function Specialties() {
               key={item.id}
               className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-200"
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
+              
               <h3 className="text-xl font-bold text-gray-900 mb-3">{item.nome}</h3>
               <p className="text-gray-600 mb-4 leading-relaxed">{item.descricao}</p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center">
-                Saiba mais <span className="ml-2">→</span>
-              </button>
+              
             </div>
           ))}
         </div>
