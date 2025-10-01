@@ -4,12 +4,15 @@ import Services from "./pages/Services";
 import Especialidades from "./pages/Especialidades";
 import Contato from "./pages/Contato";
 import Team from "./components/Team";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <div className="App min-h-screen flex flex-col">
-        <div className="flex-1 flex flex-col"> {/* ← FORÇA CRESCIMENTO FLEX */}
+      <div className="App flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/servicos" element={<Services />} />
@@ -17,7 +20,8 @@ function App() {
             <Route path="/contato" element={<Contato />} />
             <Route path="/equipe" element={<Team />} />
           </Routes>
-        </div>
+        </main>
+        <Footer className="mt-auto" />
       </div>
     </Router>
   );

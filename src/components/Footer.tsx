@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 
-export default function Footer() {
+type FooterProps = {
+  className?: string;
+};
+
+export default function Footer({ className }: FooterProps) {
   return (
-    <footer className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+    <footer className={`bg-gradient-to-r from-blue-900 to-blue-800 text-white ${className || ""}`}>
       <div className="container mx-auto py-12 px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
         
         {/* Sobre */}
