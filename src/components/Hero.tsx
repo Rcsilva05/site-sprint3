@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="hero-dark flex items-center justify-center min-h-[80vh]">
+    <section className="hero-dark flex items-center justify-center min-h-[60vh]"> {/* ← Mudei de 80vh para 60vh */}
       <div className="container mx-auto px-6 text-center">
         {/* Título */}
         <motion.h1
@@ -31,7 +31,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="flex flex-col sm:flex-row justify-center gap-6"
+          
         >
           <Link to="/contato" className="btn-primary">
             Marque sua consulta

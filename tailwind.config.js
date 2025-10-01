@@ -8,8 +8,11 @@ export default {
     extend: {
       colors: {
         primary: "#0b3553",
-        accent: "#1f9fff",
+        accent: "#f1f9fff",
       },
+      spacing: {
+        16: '2rem', // 🔥 redefine pt-16 (antes era 4rem, agora será 2rem)
+      }
     },
   },
   plugins: [],

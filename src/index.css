@@ -8,12 +8,18 @@
   --accent: #1f9fff;
 }
 
-/* body e fontes */
+/* body e fontes */ - 
 html, body, #root {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
 body {
   @apply font-sans bg-gray-50 text-gray-900 antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ← Esta linha é crucial */
 }
 
 /* Hero escuro */
@@ -26,16 +32,15 @@ body {
   justify-content: center;
 }
 
-/* Botão primário - AGORA FUNCIONANDO */
+/* Botão primário */
 .btn-primary {
   @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-200 inline-block text-center;
 }
-
 .btn-primary:hover {
   @apply transform scale-105;
 }
 
-/* Botão outline - AGORA FUNCIONANDO */
+/* Botão outline */
 .btn-outline {
   @apply border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-200 inline-block text-center;
 }
@@ -44,7 +49,6 @@ body {
 .section-title {
   @apply text-3xl md:text-4xl font-extrabold text-gray-900 mb-4;
 }
-
 .section-sub {
   @apply text-gray-600 text-lg mb-8;
 }

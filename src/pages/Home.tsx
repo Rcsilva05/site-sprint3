@@ -8,11 +8,10 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <>
-    
       <Header />
-      <main className="pt-20 md:pt-16">
+      <main className="pt-16"> {/* ← Correto para header fixed */}
         <Hero />
-        <Specialties />
+        <Specialties /> {/* ← Agora com py-8 reduzido */}
         <Team />
         <Faq /> 
       </main>
