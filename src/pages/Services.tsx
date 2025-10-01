@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Features from "../components/Features";
+import Features from "../components/Features"; // ← adicionei feature nova
 
 export default function Services() {
   return (
@@ -15,6 +15,8 @@ export default function Services() {
             </p>
           </div>
         </div>
+        
+        {/* ADICIONE O FEATURES AQUI */}
         <Features />
       </main>
       <Footer />
